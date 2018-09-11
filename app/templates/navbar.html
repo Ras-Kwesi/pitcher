@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <h2>Pitch A Minute</h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="btn btn-primary" href="/">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-success" href="/pitch/add">New Pitch</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/category/Pick Up Lines">Pick Up Lines</a>
+              <a class="dropdown-item" href="/category/Interview Pitch">Interview Pitch</a>
+              <a class="dropdown-item" href="/category/Product Pitch">Product Pitch</a>
+              <a class="dropdown-item" href="/category/Promotion Pitch">Promotion Pitch</a>
+              <a class="dropdown-item" href="/category/Collaboration Pitch">Collaboration Pitch</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+      <!--<ul class="nav navbar-nav navbar-right">-->
+        <!--{% if current_user.is_authenticated %}-->
+        <!--<li style="color:white;padding:15px;">{{current_user.username}}</li>-->
+        <!--<li><a href="{{url_for('auth.logout')}}">Sign out</a></li>-->
+        <!--{% else %}-->
+        <!--<li><a href="{{url_for('auth.login')}}">Sign in</a></li>-->
+        <!--{%endif%}-->
+      <!--</ul>-->
+      <ul class="nav navbar-nav navbar-right">
+        {% if current_user.is_authenticated %}
+        <li><a class="btn btn-outline-primary" href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
+        <div></div>
+        <li><a class="btn btn-outline-success" href="{{url_for('auth.logout')}}">Sign out</a></li>
+        {% else %}
+        <li><a class="btn btn-outline-warning" href="{{url_for('auth.login')}}">Sign in</a></li>
+        {%endif%}
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>

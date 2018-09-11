@@ -1,0 +1,15 @@
+{% macro displayCategories(category_list) %}
+
+{% for cat_pitch in category_list %}
+ <div class="'container">
+     <div class="row">
+         <div class="col-md-6">
+            <li>
+                {{cat_pitch.category}}
+            </li>
+             <a href="/pitch{{cat_pitch.id}}" class="btn btn-primary"></a>
+         </div>
+     </div>
+ </div>
+{% endfor %}
+{% endmacro %}
