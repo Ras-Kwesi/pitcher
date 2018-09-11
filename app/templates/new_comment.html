@@ -3,12 +3,15 @@
 
 {% block content %}
     <div class="jumbotron">
-        <div class="col-md-4">
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                <h1 class="card-title">{{pitch.title}}</h1>
+                <p>{{pitch.pitch}}</p>
         </div>
-        <div class="col-md-4">
+
+        <div class="col-md-8 offst-md-4">
+            <h1>{{title}}</h1>
 
             {{ wtf.quick_form(form) }}
-            {{simplemde.load}}
         </div>
 
     </div>

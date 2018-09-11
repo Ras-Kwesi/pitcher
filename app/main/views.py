@@ -3,7 +3,7 @@ from . import main
 from ..models import User,Comments,Pitches
 from .. import db,photos
 from .forms import UpdateProfile ,NewPitch, NewComment
-from flask_login import login_required
+from flask_login import login_required,current_user
 import markdown2
 
 # Views for our templates
@@ -22,7 +22,7 @@ def categories(cat_input):
     '''
     view function to display the pitches of our specific category
     '''
-    category_list = Pitches.query.filter_by(category = cat_input)
+    category_list = Pitches.query.filter_by(category = cat_input).all()
 
 
 
@@ -39,7 +39,7 @@ def pitch(id):
         abort(404)
 
     the_pitches = markdown2.markdown(the_pitch.pitch, extras=["code-friendly", "fenced-code-blocks"])
-    commentss = Comments.query.all()
+    commentss = Comments.query.filter_by().all()
 
     return render_template('pitch.html',pitch = pitch, the_pitch = the_pitch, comments = commentss)
 
@@ -73,15 +73,16 @@ def new_comments(id):
     '''
     View function to create a new comment to a pitch
     '''
-    pitch = Pitches.query.filter_by(id=id)
+    pitch = Pitches.query.filter_by(id=id).first()
     comment_form = NewComment()
     if comment_form.validate_on_submit():
-        new_comment = Comments(comment=comment_form.comment.data)
-
+        new_comment = Comments(comment=comment_form.comment.data,pitch_comment=id,)
         new_comment.save_comment()
+
+        return redirect(url_for('main.index'))
     title = 'What do you think about that pitch? '
 
-    return render_template('new_comment.html',title = title,form=comment_form)
+    return render_template('new_comment.html',title = title,form=comment_form, pitch = pitch)
 
 @main.route('/user/<uname>')
 @login_required
