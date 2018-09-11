@@ -4,7 +4,7 @@ from  flask_migrate import Migrate, MigrateCommand
 from app.models import User,Pitches,Comments
 
 
-app = create_app('development') # Instantiating our app, and assigning it to development mode
+app = create_app('production') # Instantiating our app, and assigning it to development mode
 
 manager = Manager(app)
 manager.add_command('server', Server)

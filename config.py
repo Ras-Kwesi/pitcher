@@ -4,7 +4,7 @@ class Config:
     '''
     Configuration of our app features
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kwesi:OnnenOfori14@localhost/pitcher'
+    #SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kwesi:OnnenOfori14@localhost/pitcher'
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
     SECRET_KEY = os.environ.get('SECRET_KEY')
     #  email configurations
@@ -42,6 +42,4 @@ class TestConfig(Config):
 
 config_options = {
 'development':DevConfig,
-'production':ProdConfig,
-'test':TestConfig
-}
+'production':ProdConfig}
