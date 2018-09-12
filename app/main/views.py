@@ -46,7 +46,6 @@ def pitch(id):
 
 
 @main.route('/pitch/add', methods = ['GET','POST'])
-@login_required
 def new_pitch():
     '''
     View function to create a new pitch
