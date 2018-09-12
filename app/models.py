@@ -21,6 +21,10 @@ class User(db.Model,UserMixin):
     profile_pic_path = db.Column(db.String(255))
     user_pitch = db.relationship('Pitches', backref='user', lazy='dynamic')
 
+    def save_user(self):
+        db.session.add(self)
+        db.session.commit()
+
     @property
     def password(self):
         raise AttributeError('You cannot read the password attribute')
