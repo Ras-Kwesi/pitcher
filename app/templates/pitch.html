@@ -9,6 +9,18 @@
     <h5 class="card-title">{{the_pitch.pitch}}</h5>
     <a class="btn btn-primary" href="/pitch/new_comment/{{the_pitch.id}}">ADD COMMENT</a>
   </div>
-    {{macro.displayComments( comments ) }}
+    <!--{{macro.displayComments( comments ) }}-->
+  {% for comment in comments %}
+  <div class="container-fluid">
+    div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card">
+                <h1 class ='card-title'>{{comment.comment}}</h1>
+                <div class="card-body">
+                <a class="btn btn-primary" href="/pitch/{{pitch.id}}">More Details</a>
+                </div>
+            </div>
+        </div>
+  </div>
+
 </div>
 {%endblock%}
