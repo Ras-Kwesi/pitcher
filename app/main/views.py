@@ -46,6 +46,7 @@ def pitch(id):
 
 
 @main.route('/pitch/add', methods = ['GET','POST'])
+@login_required
 def new_pitch():
     '''
     View function to create a new pitch
@@ -75,7 +76,7 @@ def new_comments(id):
     pitch = Pitches.query.filter_by(id=id).first()
     comment_form = NewComment()
     if comment_form.validate_on_submit():
-        new_comment = Comments(comment=comment_form.comment.data,pitch_comment=id,)
+        new_comment = Comments(comment=comment_form.comment.data, pitch_comment=id,)
         new_comment.save_comment()
 
         return redirect(url_for('main.index'))
