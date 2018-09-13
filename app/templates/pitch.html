@@ -11,17 +11,18 @@
 
 </div>
 <h2> <em>COMMENTS</em> </h2>
-
-{% for comment in comments %}
 <div class="jumbotron">
+
+    {% for comment in comments %}
+
 
     <div class="container-fluid">
         <div class="card">
-            <h1 class ='card-title'>{{comment.comment}}</h1>
+            <p>{{comment.comment}}</p>
         </div>
     </div>
 
 
 </div>
-{% endfor %}
+    {% endfor %}
 {% endblock %}

@@ -6,7 +6,7 @@ from app import db
 class TestPitches(unittest.TestCase):
 
     def setUp(self):
-        self.user_James = User(username='Ras', pass_key='Sword', email='ras@sword.com')
+        self.user_James = User(id = 12, username='Ras', pass_key='Sword', email='ras@sword.com')
         self.new_pitch = Pitches(title = 'Make it', pitch='We shall finish what we started'
                                  ,category='motivational')
 
@@ -25,5 +25,5 @@ class TestPitches(unittest.TestCase):
 
     def test_get_pitchs(self):
         self.new_pitch.save_pitch()
-        got_pitchess = Pitches.get_pitchs(12345)
+        got_pitchess = Pitches.get_pitchs(12)
         self.assertTrue(len(got_pitchess) == 0)
