@@ -24,6 +24,16 @@ As a user I would like:
 | Update user profile | **Update Profile Page** |Page to update the profile page |
 
 
+## Project Specification
+-[x] View sample pitches on home page, and ability to navigate to specific categories.
+-[x] View a pitch and it's comments.
+-[x] Log in requirement to create a new pitch.
+-[x] Sign up navigation from navogation bar and log in page.
+-[x] Log out when logged in.
+-[x] Add new pitch form page.
+-[x] Add new comment on pitch, form page
+-[x] View logged-in user profile page.
+-[x] Update profile page with bio and picture
 
 ### Installations & Prerequisites
 * python3.6
