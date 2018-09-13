@@ -39,9 +39,9 @@ def pitch(id):
         abort(404)
 
     the_pitches = markdown2.markdown(the_pitch.pitch, extras=["code-friendly", "fenced-code-blocks"])
-    commentss = Comments.get_comments(id)
+    # commentss = Comments.get_comments(id)
 
-    return render_template('pitch.html',pitch = pitch, the_pitch = the_pitch, comments = commentss)
+    return render_template('pitch.html',pitch = pitch, the_pitch = the_pitches)
 
 
 
