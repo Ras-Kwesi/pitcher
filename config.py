@@ -42,4 +42,5 @@ class TestConfig(Config):
 
 config_options = {
 'development':DevConfig,
+    'test':TestConfig,
 'production':ProdConfig}
